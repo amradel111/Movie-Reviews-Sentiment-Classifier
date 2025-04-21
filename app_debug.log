@@ -1,21 +1,18 @@
-2025-04-21 04:44:31,606 - INFO - --- Script app.py started ---
-2025-04-21 04:44:31,606 - INFO - Checking NLTK data...
-2025-04-21 04:44:31,609 - WARNING - NLTK data not found, attempting download...
-2025-04-21 04:44:31,914 - INFO - NLTK data downloaded.
-2025-04-21 04:44:31,915 - INFO - Loading models...
-2025-04-21 04:44:31,915 - INFO - Attempting to load model from sentiment_model.pkl
-2025-04-21 04:44:31,915 - INFO - Model loaded successfully.
-2025-04-21 04:44:31,915 - INFO - Attempting to load vectorizer from tfidf_vectorizer.pkl
-2025-04-21 04:44:31,947 - INFO - Vectorizer loaded successfully.
-2025-04-21 04:44:31,949 - INFO - --- Starting Flask Server --- 
-2025-04-21 04:44:33,548 - INFO - Request received for route: /
-2025-04-21 04:44:42,851 - INFO - Request received for route: /predict
-2025-04-21 04:44:44,601 - INFO - Prediction for 'I have lost count of how many times I have seen th...': Positive (0.8999)
-2025-04-21 04:44:54,082 - INFO - Request received for route: /predict
-2025-04-21 04:44:54,085 - INFO - Prediction for 'I have lost count of how many times I have seen th...': Positive (0.8999)
-2025-04-21 04:49:23,168 - INFO - Request received for route: /predict
-2025-04-21 04:49:23,171 - INFO - Prediction for 'I have lost count of how many times I have seen th...': Positive (0.8999)
-2025-04-21 04:51:04,728 - INFO - Request received for route: /predict
-2025-04-21 04:51:04,732 - INFO - Prediction for 'I have lost count of how many times I have seen th...': Positive (0.8999)
-2025-04-21 04:51:19,652 - INFO - Request received for route: /predict
-2025-04-21 04:51:19,659 - INFO - Prediction for 'This movie is so dated - it’s painful how obvious ...': Negative (0.8007)
+2025-04-21 15:56:56,903 - INFO - --- Script app.py started ---
+2025-04-21 15:56:56,903 - INFO - Checking NLTK data...
+2025-04-21 15:56:56,927 - WARNING - NLTK data not found, attempting download...
+2025-04-21 15:56:57,318 - INFO - NLTK data downloaded.
+2025-04-21 15:56:57,320 - INFO - Loading models...
+2025-04-21 15:56:57,320 - INFO - Attempting to load model from sentiment_model.pkl
+2025-04-21 15:56:57,321 - INFO - Model loaded successfully.
+2025-04-21 15:56:57,321 - INFO - Attempting to load vectorizer from tfidf_vectorizer.pkl
+2025-04-21 15:56:57,354 - INFO - Vectorizer loaded successfully.
+2025-04-21 15:56:57,355 - INFO - --- Starting Flask Server --- 
+2025-04-21 15:57:00,246 - INFO - Request received for route: /
+2025-04-21 15:58:46,478 - INFO - Request received for route: /predict
+2025-04-21 15:58:48,476 - INFO - Prediction for 'Can we stop pretending that this is a good movie?
+...': Negative (0.9426)
+2025-04-21 15:59:03,701 - INFO - Request received for route: /predict
+2025-04-21 15:59:03,705 - INFO - Prediction for 'anyway thank god this movie exists so that every t...': Positive (0.7379)
+2025-04-21 15:59:12,902 - INFO - Request received for route: /predict
+2025-04-21 15:59:12,905 - INFO - Prediction for 'While I cry all the tears I have, I want to say to...': Positive (0.6745)
