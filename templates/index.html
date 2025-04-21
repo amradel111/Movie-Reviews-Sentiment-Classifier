@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb Sentiment Analyzer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4">IMDb Sentiment Analyzer</h1>
+            <p class="lead">Enter a movie review to analyze its sentiment</p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                {% if not models_loaded %}
+                <div class="alert alert-danger" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    <strong>Model loading error:</strong> Couldn't load the sentiment model. 
+                    Please ensure the model files exist in the application directory.
+                </div>
+                {% endif %}
+
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="card-title mb-0">Movie Review Analysis</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="review-form">
+                            <div class="mb-3">
+                                <label for="review-text" class="form-label">Review Text</label>
+                                <textarea 
+                                    class="form-control" 
+                                    id="review-text" 
+                                    rows="6" 
+                                    placeholder="Type or paste a movie review here..."
+                                    {% if not models_loaded %}disabled{% endif %}
+                                ></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-primary" 
+                                    id="analyze-btn"
+                                    {% if not models_loaded %}disabled{% endif %}
+                                >
+                                    <i class="fas fa-search"></i> Analyze Sentiment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results card (initially hidden) -->
+                <div class="card mt-4 shadow" id="results-card" style="display: none;">
+                    <div class="card-header" id="results-header">
+                        <h3 class="card-title mb-0">Results</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <div id="sentiment-icon" class="display-1 mb-3">
+                                <!-- Will be filled by JS -->
+                            </div>
+                            <h2 id="sentiment-result">Sentiment</h2>
+                        </div>
+                        
+                        <h5>Confidence</h5>
+                        <div class="progress mb-4" style="height: 25px;">
+                            <div 
+                                id="confidence-bar" 
+                                class="progress-bar progress-bar-striped" 
+                                role="progressbar" 
+                                style="width: 0%;" 
+                                aria-valuenow="0" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100"
+                            >0%</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h5>Preprocessed Text</h5>
+                            <p id="processed-text" class="p-2 bg-light rounded">
+                                <!-- Will be filled by JS -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading spinner (initially hidden) -->
+                <div class="text-center my-4" id="loading-spinner" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Analyzing sentiment...</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-5 pt-3 text-center text-muted border-top">
+            <p>IMDb Sentiment Classifier &copy; 2025</p>
+            <p class="small">Built using Python, Flask, and Machine Learning</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 

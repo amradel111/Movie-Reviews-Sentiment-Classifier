@@ -12,15 +12,24 @@ This project builds a machine learning model to classify movie reviews from the 
 - Text preprocessing (removing HTML tags, stopwords, etc.)
 - Text vectorization using TF-IDF
 - Model training and evaluation with multiple classifiers (Logistic Regression, Naive Bayes, SVM)
-- Interactive sentiment prediction for new reviews
+- Interactive sentiment prediction via:
+  - Command-line interface for testing
+  - Web application with modern UI
 
 ## Project Structure
 
-- `01_data_loading.py` - Loads and explores the IMDb dataset
-- `02_preprocessing.py` - Preprocesses the text data (cleaning, tokenization, etc.)
-- `03_vectorization_and_training.py` - Vectorizes the text and trains classification models
-- `04_sentiment_predictor.py` - Provides an interactive interface to test the model
-- `download_nltk_data.py` - Downloads required NLTK data packages
+- **Data Processing & Model Training:**
+  - `01_data_loading.py` - Loads and explores the IMDb dataset
+  - `02_preprocessing.py` - Preprocesses the text data (cleaning, tokenization, etc.)
+  - `03_vectorization_and_training.py` - Vectorizes the text and trains classification models
+  - `04_sentiment_predictor.py` - Provides a command-line interface to test the model
+  - `download_nltk_data.py` - Downloads required NLTK data packages
+
+- **Web Application:**
+  - `app.py` - Main Flask application serving the web interface
+  - `templates/index.html` - HTML template for the web app
+  - `static/css/style.css` - Custom CSS styles
+  - `static/js/script.js` - JavaScript for the web interface
 
 ## Requirements
 
@@ -33,6 +42,7 @@ This project builds a machine learning model to classify movie reviews from the 
 - seaborn
 - joblib
 - datasets (HuggingFace)
+- Flask (for web application)
 
 ## Installation
 
@@ -46,7 +56,7 @@ This project builds a machine learning model to classify movie reviews from the 
    - macOS/Linux: `source venv/bin/activate`
 4. Install the required packages:
    ```
-   pip install pandas numpy scikit-learn nltk matplotlib seaborn joblib datasets
+   pip install -r requirements.txt
    ```
 5. Download required NLTK data:
    ```
@@ -90,7 +100,7 @@ This script:
 - Evaluates and compares model performance
 - Saves the best model and vectorizer
 
-### 4. Sentiment Prediction
+### 4. Command-line Sentiment Prediction
 
 ```
 python 04_sentiment_predictor.py
@@ -98,12 +108,31 @@ python 04_sentiment_predictor.py
 
 This script:
 - Loads the trained model and vectorizer
-- Provides an interactive interface to enter movie reviews
+- Provides an interactive command-line interface to enter movie reviews
 - Predicts the sentiment (positive/negative) with confidence scores
+
+### 5. Web Application
+
+```
+python app.py
+```
+
+This command:
+- Starts the Flask web server
+- Opens a web interface accessible at http://127.0.0.1:5000
+- Allows users to input reviews and see prediction results with a modern UI
 
 ## Results
 
 The trained models achieve high accuracy (~85-90%) on the IMDb dataset. Visualizations of model performance and confusion matrices are generated during the training process.
+
+## Web Application Screenshots
+
+The web application provides a user-friendly interface for sentiment analysis:
+
+- **Input Screen:** Clean form for entering movie reviews
+- **Results Display:** Shows sentiment prediction, confidence score, and preprocessing details
+- **Responsive Design:** Works well on both desktop and mobile devices
 
 ## License
 

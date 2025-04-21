@@ -1,0 +1,25 @@
+2025-04-21 03:55:13,292 - INFO - --- Script app.py started ---
+2025-04-21 03:55:13,292 - INFO - Checking NLTK data...
+2025-04-21 03:55:13,295 - WARNING - NLTK data not found, attempting download...
+2025-04-21 03:55:13,648 - INFO - NLTK data downloaded.
+2025-04-21 03:55:13,656 - INFO - Loading models...
+2025-04-21 03:55:13,656 - INFO - Attempting to load model from sentiment_model.pkl
+2025-04-21 03:55:13,657 - INFO - Model loaded successfully.
+2025-04-21 03:55:13,657 - INFO - Attempting to load vectorizer from tfidf_vectorizer.pkl
+2025-04-21 03:55:13,686 - INFO - Vectorizer loaded successfully.
+2025-04-21 03:55:13,686 - INFO - --- Starting Flask Server --- 
+2025-04-21 03:55:27,600 - INFO - Request received for route: /
+2025-04-21 03:59:44,564 - INFO - Request received for route: /predict
+2025-04-21 03:59:46,277 - INFO - Prediction for 'I have lost count of how many times I have seen th...': Positive (0.8999)
+2025-04-21 04:00:13,745 - INFO - Request received for route: /predict
+2025-04-21 04:00:13,747 - INFO - Prediction for 'absolutely kills me that a film which does such a ...': Positive (0.6962)
+2025-04-21 04:00:40,302 - INFO - Request received for route: /predict
+2025-04-21 04:00:40,307 - INFO - Prediction for 'I am so absolutely torn on this film. This is the ...': Negative (0.5718)
+2025-04-21 04:01:01,979 - INFO - Request received for route: /predict
+2025-04-21 04:01:01,983 - INFO - Prediction for 'This was one of the many films I constantly saw on...': Positive (0.7753)
+2025-04-21 04:06:27,838 - INFO - Request received for route: /predict
+2025-04-21 04:06:27,844 - INFO - Prediction for 'I am so absolutely torn on this film. This is the ...': Negative (0.5718)
+2025-04-21 04:06:48,128 - INFO - Request received for route: /predict
+2025-04-21 04:06:48,132 - INFO - Prediction for 'I’ve never been so happy for someone I’ve never me...': Positive (0.9365)
+2025-04-21 04:07:11,325 - INFO - Request received for route: /predict
+2025-04-21 04:07:11,328 - INFO - Prediction for 'I figured out why this movie left me depressed—yay...': Negative (0.6240)
