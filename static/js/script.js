@@ -6,6 +6,7 @@
 const reviewForm = document.getElementById('review-form');
 const reviewText = document.getElementById('review-text');
 const analyzeBtn = document.getElementById('analyze-btn');
+const clearBtn = document.getElementById('clear-btn');
 const resultsCard = document.getElementById('results-card');
 const resultsHeader = document.getElementById('results-header');
 const sentimentIcon = document.getElementById('sentiment-icon');
@@ -17,6 +18,7 @@ const loadingSpinner = document.getElementById('loading-spinner');
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
     reviewForm.addEventListener('submit', handleSubmit);
+    clearBtn.addEventListener('click', clearForm);
 });
 
 /**
@@ -86,20 +88,25 @@ function displayResults(data) {
         return;
     }
     
-    // Update sentiment result text
-    sentimentResult.textContent = data.sentiment;
+    // Remove existing classes
+    resultsCard.className = 'card shadow-sm';
     
-    // Update sentiment icon
-    if (data.sentiment === 'Positive') {
+    // Update sentiment result text and styling
+    const sentiment = data.sentiment; // "Positive" or "Negative"
+    
+    // Update UI based on sentiment
+    if (sentiment === 'Positive') {
         sentimentIcon.innerHTML = '<i class="fas fa-smile text-success"></i>';
-        resultsCard.className = 'card mt-4 shadow positive';
-    } else if (data.sentiment === 'Negative') {
+        resultsCard.classList.add('positive');
+    } else if (sentiment === 'Negative') {
         sentimentIcon.innerHTML = '<i class="fas fa-frown text-danger"></i>';
-        resultsCard.className = 'card mt-4 shadow negative';
+        resultsCard.classList.add('negative');
     } else {
         sentimentIcon.innerHTML = '<i class="fas fa-meh text-warning"></i>';
-        resultsCard.className = 'card mt-4 shadow';
     }
+    
+    // Update result text
+    sentimentResult.textContent = sentiment;
     
     // Update confidence bar
     const confidencePercent = Math.round(data.confidence * 100);
@@ -108,13 +115,13 @@ function displayResults(data) {
     confidenceBar.textContent = `${confidencePercent}%`;
     
     // Set confidence bar class based on confidence level
-    confidenceBar.className = 'progress-bar progress-bar-striped';
+    confidenceBar.className = 'progress-bar';
     if (confidencePercent >= 75) {
-        confidenceBar.classList.add('high-confidence');
+        confidenceBar.classList.add('bg-success');
     } else if (confidencePercent >= 50) {
-        confidenceBar.classList.add('medium-confidence');
+        confidenceBar.classList.add('bg-primary');
     } else {
-        confidenceBar.classList.add('low-confidence');
+        confidenceBar.classList.add('bg-warning');
     }
     
     // Update processed text display
@@ -153,4 +160,14 @@ function showError(message) {
             bsAlert.close();
         }
     }, 5000);
+}
+
+/**
+ * Clear the form and hide results
+ */
+function clearForm() {
+    reviewText.value = '';
+    resultsCard.style.display = 'none';
+    // Set focus back to the text area
+    reviewText.focus();
 } 
