@@ -1,5 +1,5 @@
 """
-IMDb Sentiment Classifier - Sentiment Predictor
+Movie Reviews Sentiment Classifier - Sentiment Predictor
 
 This script loads the trained model and vectorizer to predict sentiment on new movie reviews.
 """
@@ -94,8 +94,8 @@ def predict_sentiment(review_text, model, vectorizer, preprocess=True):
 
 def main():
     """Main function to run the sentiment predictor"""
-    print("IMDb Sentiment Classifier - Sentiment Predictor")
-    print("-" * 50)
+    print("Movie Reviews Sentiment Classifier - Command-Line Predictor")
+    print("-" * 60)
     
     try:
         # Load the model and vectorizer
@@ -134,7 +134,7 @@ def main():
             print(f"Confidence bar: |{bar}|")
             
             # Show preprocessed text if requested
-            print(f"\nPreprocessed text: {processed_text}")
+            # print(f"\nPreprocessed text: {processed_text}")
             
             print("\nEnter another review or type 'exit' to quit:")
     

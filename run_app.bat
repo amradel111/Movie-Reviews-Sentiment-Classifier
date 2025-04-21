@@ -1,5 +1,5 @@
 @echo off
-echo Attempting to start IMDb Sentiment Analyzer...
+echo Attempting to start Movie Reviews Sentiment Analyzer...
 
 :: Activate venv if it exists
 if exist venv\Scripts\activate.bat (

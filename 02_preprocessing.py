@@ -1,5 +1,5 @@
 """
-IMDb Sentiment Classifier - Text Preprocessing
+Movie Reviews Sentiment Classifier - Text Preprocessing
 """
 
 import pandas as pd
@@ -22,8 +22,8 @@ else:
 
 # Make sure necessary NLTK data is downloaded
 print("Downloading NLTK data (if needed)...")
-nltk.download('stopwords')
-nltk.download('wordnet')
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
 print("NLTK data check complete.")
 
 def simple_tokenize(text):
@@ -74,8 +74,8 @@ def preprocess_text(text):
 
 def main():
     """Main function for text preprocessing"""
-    print("IMDb Sentiment Classifier - Text Preprocessing")
-    print("-" * 50)
+    print("Movie Reviews Sentiment Classifier - Text Preprocessing")
+    print("-" * 60)
     
     # Load the dataset saved from the previous step
     print("Loading the IMDb dataset...")
@@ -185,9 +185,9 @@ def main():
     plt.ylabel('Frequency')
     
     plt.tight_layout()
-    plt.savefig('token_count_distribution.png')
+    plt.savefig('photos/token_count_distribution.png')
     plt.close()
-    print("Token count distribution plots saved as 'token_count_distribution.png'")
+    print("Token count distribution plots saved as 'photos/token_count_distribution.png'")
     
     # Save the preprocessed datasets for model training
     print("\nSaving preprocessed datasets...")

@@ -1,4 +1,4 @@
-# IMDb Sentiment Classifier
+# Movie Reviews Sentiment Classifier
 
 A sentiment analysis project that classifies movie reviews as positive or negative using NLP techniques.
 
@@ -119,7 +119,7 @@ python app.py
 
 This command:
 - Starts the Flask web server
-- Opens a web interface accessible at http://127.0.0.1:5000
+- Opens a web interface accessible at http://127.0.0.1:8080
 - Allows users to input reviews and see prediction results with a modern UI
 
 ## Results

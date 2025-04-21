@@ -1,5 +1,5 @@
 """
-IMDb Sentiment Classifier - Data Loading and Exploration
+Movie Reviews Sentiment Classifier - Data Loading and Exploration
 """
 
 # Import necessary libraries
@@ -15,8 +15,8 @@ plt.style.use('ggplot')
 
 def main():
     """Main function for data loading and exploration"""
-    print("IMDb Sentiment Classifier - Data Loading and Exploration")
-    print("-" * 50)
+    print("Movie Reviews Sentiment Classifier - Data Loading and Exploration")
+    print("-" * 60)
     
     # Download necessary NLTK data
     print("Downloading NLTK data...")
@@ -69,9 +69,9 @@ def main():
     plt.title('Distribution of Review Lengths by Sentiment')
     plt.xlabel('Review Length (characters)')
     plt.ylabel('Count')
-    plt.savefig('review_length_distribution.png')
+    plt.savefig('photos/review_length_distribution.png')
     plt.close()
-    print("Review length distribution plot saved as 'review_length_distribution.png'")
+    print("Review length distribution plot saved as 'photos/review_length_distribution.png'")
     
     # Display a sample positive and negative review
     pos_sample = train_df[train_df['label'] == 1].iloc[0]['text']

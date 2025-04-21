@@ -1,5 +1,5 @@
 """
-IMDb Sentiment Classifier - Vectorization and Model Training
+Movie Reviews Sentiment Classifier - Vectorization and Model Training
 """
 
 import pandas as pd
@@ -14,11 +14,16 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.metrics import confusion_matrix, classification_report
 import joblib
 import time
+import os
+
+# Ensure photos directory exists
+if not os.path.exists('photos'):
+    os.makedirs('photos')
 
 def main():
     """Main function for text vectorization and model training"""
-    print("IMDb Sentiment Classifier - Vectorization and Model Training")
-    print("-" * 60)
+    print("Movie Reviews Sentiment Classifier - Vectorization and Model Training")
+    print("-" * 70)
     
     # Load preprocessed datasets
     print("Loading preprocessed datasets...")
@@ -130,7 +135,7 @@ def main():
         plt.xlabel('Predicted')
         plt.ylabel('Actual')
         plt.title(f'Confusion Matrix - {model_name}')
-        plt.savefig(f'confusion_matrix_{model_name.replace(" ", "_").lower()}.png')
+        plt.savefig(f'photos/confusion_matrix_{model_name.replace(" ", "_").lower()}.png')
         plt.close()
     
     # Find the best model based on F1-score
@@ -168,7 +173,7 @@ def main():
     plt.xlabel('Predicted')
     plt.ylabel('Actual')
     plt.title(f'Test Confusion Matrix - {best_model_name}')
-    plt.savefig('test_confusion_matrix.png')
+    plt.savefig('photos/test_confusion_matrix.png')
     plt.close()
     
     # Compare model performances
@@ -189,7 +194,7 @@ def main():
     plt.title('Model Performance Comparison')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('model_comparison.png')
+    plt.savefig('photos/model_comparison.png')
     plt.close()
     
     # Save the best model and vectorizer
